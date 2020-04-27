@@ -4,7 +4,7 @@ module. exports = {
   async index(request, response) {
     const { page = 1 } = request.query
 
-    const questions = await connection('question')
+    const questions = await connection('users')
     .limit(10)
     .offset((page - 1) * 10)
     .select('*')
@@ -13,8 +13,8 @@ module. exports = {
   },
 
   async create(request, response) {
-    const { text, user } = request.body
-    const [id] = await connection('question').insert({text, user})
+    const { name, email, password } = request.body
+    const [id] = await connection('users').insert({name, email, password})
 
     return response.json({ id })
   }
