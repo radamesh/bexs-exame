@@ -1,0 +1,43 @@
+/*.container {
+  width: 100%;
+  max-width: 1120px;
+  height: 100vh;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}*/
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  padding: 0 30px;
+  margin: 32px auto;
+}
+
+.container header {
+  display: flex;
+  align-items: center;
+}
+
+.container header span {
+  font-size: 20px;
+  margin-left: 24px;
+}
+
+.container h1 {
+  margin-top: 80px;
+  margin-bottom: 24px;
+}
+
+.container ul {
+  display: grid;
+  grid-gap: 24px;
+  list-style: none;
+}
+
+.container ul li {
+  background: #FFF;
+  padding: 24px;
+  border-radius: 8px;
+  position: relative;
+}

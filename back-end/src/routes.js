@@ -8,9 +8,9 @@ const UsersController = require('./controllers/UsersController')
 
 routes.get('/questions', QuestionController.index)
 routes.post('/question/create', QuestionController.create)
+routes.get('/answers/:id', QuestionController.questionWithAnswers)
 
-routes.get('/answers', AnswersController.index)
-routes.post('/answers/create', AnswersController.index)
+routes.post('/answers/create', AnswersController.create)
 
 routes.get('/user', UsersController.index)
 routes.post('/user/create', UsersController.create)

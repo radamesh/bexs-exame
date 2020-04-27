@@ -6,6 +6,7 @@ module. exports = {
 
     const questions = await connection('question')
     .limit(10)
+    .orderBy('id', 'desc')
     .offset((page - 1) * 10)
     .select('*')
 
@@ -17,5 +18,16 @@ module. exports = {
     const [id] = await connection('question').insert({text, user})
 
     return response.json({ id })
+  },
+
+  async questionWithAnswers(request, response) {
+    const { id } = request.params
+    
+    const questAnswers = await connection('question')
+      .join('answers', 'answers.question_id', '=', 'question.id')
+      .where('id', id)
+      .select('*')
+
+    return response.json(questAnswers)
   }
 }
