@@ -19,6 +19,8 @@ Teste basico
 ```bash
 npm test
 ```
+[POSTMAN Link](https://www.getpostman.com/collections/8a6d6a3a258a6d8f5a0d)
+
 ## React - front-end
 ```bash
 npm install
