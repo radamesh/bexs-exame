@@ -58,7 +58,7 @@ export default function Question() {
             <span>{question.user}</span>
             <span>{question.createDate}</span>
             <button className="questionbutton" onClick={() => goAnswers(question.id)} type="button">
-              Ver detalhes
+              Responder
             </button>
           </li>
         ))}
