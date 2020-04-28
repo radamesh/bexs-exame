@@ -1,7 +1,7 @@
 # bexs-exame
 
 ## API - back-end
-A api usa baco de dados MySQL.
+A api usa banco de dados MySQL.
 
 O aquivo de config da base: [link](https://github.com/radamesh/bexs-exame/blob/master/back-end/knexfile.js)
 
