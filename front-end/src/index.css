@@ -20,7 +20,7 @@ button, textarea {
 form textarea {
   width: 100%;
   resize: vertical;
-  min-height: 140px;
+  min-height: 100px;
   color: #333;
   border: 1px solid #dcdce6;
   border-radius: 8px;
@@ -30,7 +30,7 @@ form textarea {
 
 .button {
   width: 100%;
-  height: 60px;
+  height: 50px;
   background: #e02041;
   border: 0;
   border-radius: 8px;
@@ -41,7 +41,7 @@ form textarea {
   text-align: center;
   text-decoration: none;
   font-size: 18px;
-  line-height: 60px;
+  line-height: 50px;
   transition: filter 0.2s;
 }
 

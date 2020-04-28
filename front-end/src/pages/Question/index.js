@@ -22,6 +22,10 @@ export default function Question() {
     }
   }
 
+  function goAnswers(id) {
+    history.push(`answers/${id}`)
+  }
+
   useEffect(() => {
     api.get('questions')
       .then(response => {
@@ -34,22 +38,26 @@ export default function Question() {
       <header>
         <span>Bem Vindo!</span>      
       </header>
+
       <form onSubmit={saveQuestions}>
         <textarea
           placeholder="Cadastre uma nova pergunta ..."
           value={text}
           onChange={e => setText(e.target.value)}
-        />                           <button className="button" type="submit">Cadastrar</button>
+        />
+        <button className="button" type="submit">Perguntar</button>
       </form>
+
       <h1>Perguntas Cadastradas</h1>
 
       <ul>
         {questions.map(question => (
           <li key={question.id}>
             <strong>Pergunta:</strong>
-            <p>{question.text}</p>
-
-            <button type="button">
+            <h2>{question.text}</h2>
+            <span>{question.user}</span>
+            <span>{question.createDate}</span>
+            <button className="questionbutton" onClick={() => goAnswers(question.id)} type="button">
               Ver detalhes
             </button>
           </li>

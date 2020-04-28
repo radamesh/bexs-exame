@@ -23,11 +23,16 @@ module. exports = {
   async questionWithAnswers(request, response) {
     const { id } = request.params
     
-    const questAnswers = await connection('question')
-      .join('answers', 'answers.question_id', '=', 'question.id')
-      .where('id', id)
+    const question = await connection('question')
+    .where('id', id)
+    .select('*')
+    
+    const answers = await connection('answers')
+      .where('question_id', id)
       .select('*')
 
-    return response.json(questAnswers)
+      const result = {question, answers: answers}
+
+    return response.json(result)
   }
 }
