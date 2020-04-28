@@ -1,6 +1,7 @@
 # bexs-exame
 
-API - back-end
+## API - back-end
+
 npm install
 
 Para instalar as tabelas do migration
@@ -8,7 +9,10 @@ npx knex migrate:latest
 
 npm start
 
-React - front-end
+Teste basico
+npm test
+
+## React - front-end
 
 npm install
 
