@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import api from '../../services/api'
 import './styles.css'
 
@@ -15,8 +15,9 @@ export default function Question() {
     const data = {text, user}
     try {
       const question = await api.post('question/create', data)
-      alert(`Caro "${question.data.id}" sua pergunta foi salvo com sucesso!`)
-      history.push('/')
+      alert(`Sua pergunta foi salvo com sucesso!`)
+      window.location.reload(true)
+      //history.push('/')
     } catch (error) {
       alert('Não foi possivel salvar sua perguta.')
     }
@@ -48,18 +49,16 @@ export default function Question() {
         <button className="button" type="submit">Perguntar</button>
       </form>
 
-      <h1>Perguntas Cadastradas</h1>
+      <h2>Perguntas Cadastradas</h2>
 
       <ul>
         {questions.map(question => (
           <li key={question.id}>
-            <strong>Pergunta:</strong>
-            <h2>{question.text}</h2>
-            <span>{question.user}</span>
-            <span>{question.createDate}</span>
-            <button className="questionbutton" onClick={() => goAnswers(question.id)} type="button">
+            <h1>{question.text}</h1>
+            <p>{question.user} - {question.createDate}</p>
+            <Link className="back-link" onClick={() => goAnswers(question.id)}>
               Responder
-            </button>
+            </Link>
           </li>
         ))}
       </ul>

@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.container h1 {
+  font: 400 25px Pacifico, sans-serif;
+}
+
+.container h2 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.container header span {
+  font: 400 25px Bangers, sans-serif;
+}

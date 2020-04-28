@@ -29,6 +29,7 @@ module. exports = {
     
     const answers = await connection('answers')
       .where('question_id', id)
+      .orderBy('id', 'desc')
       .select('*')
 
       const result = {question, answers: answers}

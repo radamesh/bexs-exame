@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 import api from '../../services/api';
 import './styles.css';
@@ -8,10 +8,10 @@ export default function Answers() {
   const [answers, setAnswers] = useState([])
   const [question, setQuestion] = useState([])
   const { id } = useParams()
-  const history = useHistory()
+  //const history = useHistory()
 
   const [text, setText] = useState('')
-  const [user] = useState('')
+  const [user] = useState('guilherme silva')
   const [question_id] = useState(id)
 
   async function saveAnswers(e) {
@@ -19,9 +19,10 @@ export default function Answers() {
 
     const data = {text, user, question_id}
     try {
-      const answers = await api.post('answers/create', data)
-      alert(`Caro "${answers.data.id}" sua resposta foi salvo com sucesso!`)
-      history.push(`/answers/${id}`)
+      await api.post('answers/create', data)
+      alert(`Sua resposta foi salvo com sucesso!`)
+      //history.push(`/answers/${id}`)
+      window.location.reload(true)
     } catch (error) {
       alert('Não foi possivel salvar sua resposta.')
     }
@@ -56,12 +57,12 @@ export default function Answers() {
         <button className="button" type="submit">Responder</button>
       </form>
 
+      <h2>Respostas</h2>
 
       <ul>
         {answers.map(answer => (
           <li key={answer.id}>
-            <strong>Resposta:</strong>
-            <p>{answer.text}</p>
+            <h3>{answer.text}</h3>
             <p>{answer.user}</p>
             <p>{answer.createDate}</p>
           </li>
